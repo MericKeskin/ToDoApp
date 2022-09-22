@@ -49,6 +49,7 @@ class ToDoViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        theTableView.deselectRow(at: indexPath, animated: true)
         let item = self.items[indexPath.row]
         let sheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         sheet.addAction(UIAlertAction(title: "Edit", style: .default, handler: { [weak self] _ in
