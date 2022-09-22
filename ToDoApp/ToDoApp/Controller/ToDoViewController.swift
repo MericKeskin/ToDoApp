@@ -19,10 +19,18 @@ class ToDoViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         theTableView.register(UINib(nibName: "ToDoTableViewCell", bundle: nil), forCellReuseIdentifier: "toDoCell")
+        
+        getItems()
     }
 
     @IBAction func addBtnClick(_ sender: Any) {
-        
+        let alert = UIAlertController(title: "New Item", message: "Enter new item", preferredStyle: .alert)
+        alert.addTextField(configurationHandler: nil)
+        alert.addAction(UIAlertAction(title: "Enter", style: .cancel) { [weak self] _ in
+            guard let text = alert.textFields?.first?.text, !text.isEmpty else { return }
+            self?.createItem(name: text)
+        })
+        present(alert, animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -33,17 +41,31 @@ class ToDoViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if let cell = theTableView.dequeueReusableCell(withIdentifier: "toDoCell", for: indexPath) as? ToDoTableViewCell {
             let item = items[indexPath.row]
             cell.nameLbl.text = item.name
-            let dateFormatter = DateFormatter()
-            let dateStr = dateFormatter.string(from: item.lastEditDate ?? Date())
-            cell.dateLbl.text = .getFormattedDate(string: dateStr, formatter: "MMM d")
-            cell.timeLbl.text = .getFormattedDate(string: dateStr, formatter: "HH:mm")
+            cell.dateLbl.text = .getFormattedDate(string: (item.lastEditDate ?? Date()).description, formatter: "MMM d")
+            cell.timeLbl.text = .getFormattedDate(string: (item.lastEditDate ?? Date()).description, formatter: "HH:mm")
             return cell
         }
         return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let item = self.items[indexPath.row]
+        let sheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        sheet.addAction(UIAlertAction(title: "Edit", style: .default, handler: { [weak self] _ in
+            let alert = UIAlertController(title: "Edit Item", message: "Enter changed item", preferredStyle: .alert)
+            alert.addTextField(configurationHandler: nil)
+            alert.textFields?.first?.text = item.name
+            alert.addAction(UIAlertAction(title: "Enter", style: .cancel) { [weak self] _ in
+                guard let text = alert.textFields?.first?.text, !text.isEmpty else { return }
+                self?.updateItem(item: item, newName: text)
+            })
+            self?.present(alert, animated: true)
+        }))
+        sheet.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { [weak self] _ in
+            self?.deleteItem(item: item)
+        }))
+        sheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(sheet, animated: true)
     }
     
     func getItems() {
