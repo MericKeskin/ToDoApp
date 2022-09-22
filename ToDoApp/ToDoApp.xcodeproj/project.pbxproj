@@ -9,23 +9,27 @@
 /* Begin PBXBuildFile section */
 		56CC1BC628D9FBB000A00FC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CC1BC528D9FBB000A00FC9 /* AppDelegate.swift */; };
 		56CC1BC828D9FBB000A00FC9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CC1BC728D9FBB000A00FC9 /* SceneDelegate.swift */; };
-		56CC1BCA28D9FBB000A00FC9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CC1BC928D9FBB000A00FC9 /* ViewController.swift */; };
+		56CC1BCA28D9FBB000A00FC9 /* ToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CC1BC928D9FBB000A00FC9 /* ToDoViewController.swift */; };
 		56CC1BCD28D9FBB000A00FC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56CC1BCB28D9FBB000A00FC9 /* Main.storyboard */; };
 		56CC1BD028D9FBB000A00FC9 /* ToDoApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56CC1BCE28D9FBB000A00FC9 /* ToDoApp.xcdatamodeld */; };
 		56CC1BD228D9FBB100A00FC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56CC1BD128D9FBB100A00FC9 /* Assets.xcassets */; };
 		56CC1BD528D9FBB100A00FC9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56CC1BD328D9FBB100A00FC9 /* LaunchScreen.storyboard */; };
+		56CC1BE128DC542B00A00FC9 /* ToDoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CC1BDF28DC542B00A00FC9 /* ToDoTableViewCell.swift */; };
+		56CC1BE228DC542B00A00FC9 /* ToDoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56CC1BE028DC542B00A00FC9 /* ToDoTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		56CC1BC228D9FBB000A00FC9 /* ToDoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56CC1BC528D9FBB000A00FC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56CC1BC728D9FBB000A00FC9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		56CC1BC928D9FBB000A00FC9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		56CC1BC928D9FBB000A00FC9 /* ToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoViewController.swift; sourceTree = "<group>"; };
 		56CC1BCC28D9FBB000A00FC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		56CC1BCF28D9FBB000A00FC9 /* ToDoApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ToDoApp.xcdatamodel; sourceTree = "<group>"; };
 		56CC1BD128D9FBB100A00FC9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		56CC1BD428D9FBB100A00FC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		56CC1BD628D9FBB100A00FC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		56CC1BDF28DC542B00A00FC9 /* ToDoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTableViewCell.swift; sourceTree = "<group>"; };
+		56CC1BE028DC542B00A00FC9 /* ToDoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToDoTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +62,42 @@
 		56CC1BC428D9FBB000A00FC9 /* ToDoApp */ = {
 			isa = PBXGroup;
 			children = (
+				56CC1BDC28DC53A700A00FC9 /* Controller */,
+				56CC1BDE28DC53DB00A00FC9 /* View */,
+				56CC1BDD28DC53BE00A00FC9 /* Model */,
 				56CC1BC528D9FBB000A00FC9 /* AppDelegate.swift */,
 				56CC1BC728D9FBB000A00FC9 /* SceneDelegate.swift */,
-				56CC1BC928D9FBB000A00FC9 /* ViewController.swift */,
 				56CC1BCB28D9FBB000A00FC9 /* Main.storyboard */,
 				56CC1BD128D9FBB100A00FC9 /* Assets.xcassets */,
 				56CC1BD328D9FBB100A00FC9 /* LaunchScreen.storyboard */,
 				56CC1BD628D9FBB100A00FC9 /* Info.plist */,
-				56CC1BCE28D9FBB000A00FC9 /* ToDoApp.xcdatamodeld */,
 			);
 			path = ToDoApp;
+			sourceTree = "<group>";
+		};
+		56CC1BDC28DC53A700A00FC9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				56CC1BC928D9FBB000A00FC9 /* ToDoViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		56CC1BDD28DC53BE00A00FC9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				56CC1BCE28D9FBB000A00FC9 /* ToDoApp.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		56CC1BDE28DC53DB00A00FC9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				56CC1BDF28DC542B00A00FC9 /* ToDoTableViewCell.swift */,
+				56CC1BE028DC542B00A00FC9 /* ToDoTableViewCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,6 +161,7 @@
 				56CC1BD528D9FBB100A00FC9 /* LaunchScreen.storyboard in Resources */,
 				56CC1BD228D9FBB100A00FC9 /* Assets.xcassets in Resources */,
 				56CC1BCD28D9FBB000A00FC9 /* Main.storyboard in Resources */,
+				56CC1BE228DC542B00A00FC9 /* ToDoTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,10 +172,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56CC1BCA28D9FBB000A00FC9 /* ViewController.swift in Sources */,
+				56CC1BCA28D9FBB000A00FC9 /* ToDoViewController.swift in Sources */,
 				56CC1BC628D9FBB000A00FC9 /* AppDelegate.swift in Sources */,
 				56CC1BC828D9FBB000A00FC9 /* SceneDelegate.swift in Sources */,
 				56CC1BD028D9FBB000A00FC9 /* ToDoApp.xcdatamodeld in Sources */,
+				56CC1BE128DC542B00A00FC9 /* ToDoTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
