@@ -52,7 +52,7 @@ class ToDoViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let item = self.items[indexPath.row]
         let sheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         sheet.addAction(UIAlertAction(title: "Edit", style: .default, handler: { [weak self] _ in
-            let alert = UIAlertController(title: "Edit Item", message: "Enter changed item", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Edit Item", message: "Edit the item", preferredStyle: .alert)
             alert.addTextField(configurationHandler: nil)
             alert.textFields?.first?.text = item.name
             alert.addAction(UIAlertAction(title: "Enter", style: .cancel) { [weak self] _ in
