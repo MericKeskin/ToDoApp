@@ -34,7 +34,13 @@
                             <constraint firstItem="2E8-Ed-KMb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="iLy-ZU-usg"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="To Do List" id="VI5-rz-tj1"/>
+                    <navigationItem key="navigationItem" title="To Do List" id="VI5-rz-tj1">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="pgl-Nf-QXc">
+                            <connections>
+                                <action selector="addBtnClick:" destination="BYZ-38-t0r" id="FaS-tQ-J4J"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="theTableView" destination="2E8-Ed-KMb" id="lAU-SN-06D"/>
                     </connections>
